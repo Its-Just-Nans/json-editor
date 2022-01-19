@@ -11,8 +11,10 @@
 		if (Array.isArray(valueProps)) {
 			valueProps.push("");
 		} else {
-			valueProps[newKey] = "";
-			newObjectInput = null;
+			if (newKey !== null) {
+				valueProps[newKey] = "";
+				newObjectInput = null;
+			}
 		}
 		updateVal();
 	};

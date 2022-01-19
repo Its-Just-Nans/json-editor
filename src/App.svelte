@@ -30,6 +30,23 @@
 	const updater = (newParsed) => {
 		parsed = newParsed;
 	};
+	const download = () => {
+		// https://stackoverflow.com/a/33542499
+		try {
+			const blob = new Blob([JSON.stringify(parsed)], {
+				type: "application/json",
+			});
+			const elem = window.document.createElement("a");
+			elem.href = window.URL.createObjectURL(blob);
+			elem.download = "data.json";
+			document.body.appendChild(elem);
+			elem.click();
+			document.body.removeChild(elem);
+		} catch (e) {
+			console.log(e);
+			console.log("Error during download");
+		}
+	};
 </script>
 
 <main>
@@ -59,6 +76,13 @@
 			</button>
 		</div>
 	{:else}
+		<div class="center">
+			<button
+				on:click={() => {
+					download();
+				}}>Download file</button
+			>
+		</div>
 		<div class="cut">
 			<div>
 				<RenderStruct callback={updater} valueProps={parsed} />
