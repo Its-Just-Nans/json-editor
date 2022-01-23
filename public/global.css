@@ -65,3 +65,10 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+
+@media (max-width: 1024px) {
+	ul{
+		padding-inline-start: 10px;
+	}
+}

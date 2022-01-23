@@ -100,8 +100,8 @@
 		flex: 0.5;
 	}
 	main {
-		max-width: 240px;
-		margin: 0 auto;
+		max-width: none;
+		margin: 0;
 	}
 	.center {
 		margin: auto;
@@ -116,10 +116,5 @@
 
 	pre {
 		background-color: lightblue;
-	}
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 	}
 </style>
