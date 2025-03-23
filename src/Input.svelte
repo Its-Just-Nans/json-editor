@@ -23,7 +23,7 @@
             if (selected === "text") {
                 value = value.toString();
             } else if (selected === "number") {
-                value = parseInt(value) || DEFAULT_INT_VALUE;
+                value = parseFloat(value) || DEFAULT_INT_VALUE;
             } else if (selected === "array") {
                 value = [];
             } else if (selected === "object") {
@@ -55,8 +55,7 @@
         {#if getValue(value) === "number"}
             <input
                 on:input={(evt) => {
-                    let newValue =
-                        parseInt(evt.target.value) || DEFAULT_INT_VALUE;
+                    let newValue = parseFloat(evt.target.value) || DEFAULT_INT_VALUE;
                     callBack(index, newValue);
                 }}
                 type="number"
